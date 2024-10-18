@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Endpoint for receiving callback notifications from Pesapal
-@app.route('/pesapal/callback', methods=['POST'])
+@app.route('/pesapal/callback', methods=['POST','GET'])
 def pesapal_callback():
     try:
         # Get the response from Pesapal
@@ -34,7 +34,7 @@ def pesapal_callback():
 
     except Exception as e:
         print(f"Error processing callback: {e}")
-        return jsonify({"status": "error", "message": str(e)}), 500
+        return jsonify({"status": "error", "message": str(e)}), 400
 
 # Home route (you can add more routes as needed)
 @app.route('/')

@@ -44,7 +44,7 @@ def pesapal_callback():
             print("No status field in payment status.")
 
         # Return success response to Pesapal
-        return jsonify({"status": "success"}), 200
+        return jsonify({"status": "Payment successful redirecting..."}), 200
 
     except Exception as e:
         print(f"Error processing callback: {e}")
